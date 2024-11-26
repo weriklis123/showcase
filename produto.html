@@ -1,0 +1,103 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brasilia Xtreme - Sports</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Loja Virtual</div>
+            <ul class="menu">
+                <li><a href="index.html">Início</a></li>
+                <li><a href="index.html">Produtos</a></li>
+                <li><a href="contato.html">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="produto-detalhes">
+            <h1 id="produto-nome"></h1>
+            <div class="produto-container">
+                <img id="produto-imagem" src="" alt="">
+                <div class="descricao">
+                    <p id="produto-descricao"></p>
+                    <p><strong>Preço:</strong> <span id="produto-preco"></span></p>
+                    <button class="btn">Comprar Agora</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-links">
+            <h5>Wériklis Marques</h5>
+            <a href="https://br.linkedin.com/in/weriklis-marques-936826209>linkedlin/"a>
+            <a href="https://www.instagram.com/_weriklis/>Instagram/"a>
+            <a href="https://github.com/weriklis123/portifolio">Github</a>
+            <br>
+           
+        </div>
+        <p>&copy; 2024 Loja Virtual - Todos os direitos reservados.</p>
+        <p>Direitos de:
+            Wériklis Marques Almeida<br>
+        </p>
+    </footer>
+
+    <script>
+        // Lista de produtos
+        const produtos = {
+            1: {
+                nome: "Ala Superior",
+                descricao: "Ala mais distante do nosso evento.",
+                preco: "R$50,00"
+            },
+            2: {
+                nome: "Ala Mediana.",
+                descricao: "Abaixo da Ala superior.",
+                preco: "R$70,00"
+            },
+            3: {
+                nome: "Ala Próxima",
+                descricao: "Ala proxima a grade, abaixo da Ala mediana",
+                preco: "R$ 79,80"
+            },
+            4: {
+                nome: "Grade",
+                descricao: "Ala grade: acima da aréa vip.",
+                preco: "R$ 100,00"
+            },
+            5: {
+                nome: "VIP",
+                descricao: "Próximo dos atletas, e das performances.",
+                preco: "R$ 130,00"
+            },
+            6: {
+                nome: "Areá VIP + Open Food",
+                descricao: "proximo dos atletas e apresentações, com direito a acesso exclusivo a nosso banquete de comida diversas.",
+                preco: "R$ 170,00"
+            }
+        };
+    
+        // Obtém o ID do produto da URL
+        const params = new URLSearchParams(window.location.search);
+        const id = params.get("id");
+    
+        // Preenche os detalhes do produto na página
+        if (produtos[id]) {
+            document.getElementById("produto-nome").textContent = produtos[id].nome;
+            document.getElementById("produto-descricao").textContent = produtos[id].descricao;
+            document.getElementById("produto-imagem").src = produtos[id].imagem; // Adiciona a imagem ao src
+            document.getElementById("produto-imagem").alt = produtos[id].nome; // Adiciona o texto alternativo
+            document.getElementById("produto-preco").textContent = produtos[id].preco;
+        } else {
+            document.querySelector(".produto-detalhes").innerHTML = "<h1>Produto não encontrado</h1>";
+        }
+    </script>
+    
+</body>
+</html>
